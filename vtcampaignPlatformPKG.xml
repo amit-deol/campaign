@@ -1,4 +1,4 @@
-<package author="Administrator (admin)" buildDate="2017-01-20 03:12:04.129Z" buildNumber="8705" buildVersion="6.1" img="xtk:installedPackage.png" label="Platform Package" name="campaignPlatformPKG" namespace="vt" vendor="">
+<package author="Administrator (admin)" buildDate="2017-01-20 03:12:43.436Z" buildNumber="8705" buildVersion="6.1" img="xtk:installedPackage.png" label="Platform Package" name="campaignPlatformPKG" namespace="vt" vendor="">
   <entities schema="nms:offerCategory">
     <offerCategory entity="xtk:folder" image-name="workflow.png" image-namespace="xtk" label="Test" model="xtkWorkflow" name="Folder1" order="2" schema="xtk:workflow">
       <parent _operation="none" name="nmsTechnicalWorkflow"/>
