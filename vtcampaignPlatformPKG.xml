@@ -1,4 +1,4 @@
-<package author="Administrator (admin)" buildDate="2017-01-20 03:12:43.436Z" buildNumber="8705" buildVersion="6.1" img="xtk:installedPackage.png" label="Platform Package" name="campaignPlatformPKG" namespace="vt" vendor="">
+<package author="Administrator (admin)" buildDate="2017-01-20 03:14:37.880Z" buildNumber="8705" buildVersion="6.1" img="xtk:installedPackage.png" label="Platform Package" name="campaignPlatformPKG" namespace="vt" vendor="">
   <entities schema="nms:offerCategory">
     <offerCategory entity="xtk:folder" image-name="workflow.png" image-namespace="xtk" label="Test" model="xtkWorkflow" name="Folder1" order="2" schema="xtk:workflow">
       <parent _operation="none" name="nmsTechnicalWorkflow"/>
@@ -139,6 +139,13 @@
         <operator _operation="none" name="delivery" type="1"/>
       </rights>
     </folder>
+  </entities>
+  <entities schema="xtk:srcSchema">
+    <srcSchema desc="Recipient table (profiles" entitySchema="xtk:srcSchema" extendedSchema="nms:recipient" img="nms:recipient.png" label="Recipients" labelSingular="Recipient" name="recipient" namespace="vt" xtkschema="xtk:srcSchema">
+      <element desc="Recipient table (profiles" img="nms:recipient.png" label="Recipients" labelSingular="Recipient" name="recipient">
+        <attribute label="flag" name="flag1" type="boolean"/>
+      </element>
+    </srcSchema>
   </entities>
   <entities schema="xtk:specFile">
     <specFile img="xtk:installedPackage.png" includeDefaultValues="false" includeInstallScript="false" includeSpec="true" label="Platform Package" name="campaignPlatformPKG" namespace="vt" type="1">
