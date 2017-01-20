@@ -1,0 +1,220 @@
+<package author="Administrator (admin)" buildDate="2017-01-20 03:11:16.719Z" buildNumber="8705" buildVersion="6.1" img="xtk:installedPackage.png" label="Platform Package" name="campaignPlatformPKG" namespace="vt" vendor="">
+  <entities schema="nms:offerCategory">
+    <offerCategory entity="xtk:folder" image-name="workflow.png" image-namespace="xtk" label="Test" model="xtkWorkflow" name="Folder1" order="2" schema="xtk:workflow">
+      <parent _operation="none" name="nmsTechnicalWorkflow"/>
+      <where filteringSchema="xtk:workflow"/>
+      <filter schema=""/>
+    </offerCategory>
+    <offerCategory image-name="offerEnv.png" image-namespace="nms" label="Environment - Recipient" model="nmsOfferEnv" name="designRcp" order="10" schema="nms:offer">
+      <where filteringSchema="nms:offer">
+        <condition expr="[category/@fullName] LIKE $(folderFullName) + '%'" internalId="1304346516"/>
+      </where>
+      <filter schema=""/>
+      <parent _operation="none" name="nmsOfferMgt"/>
+      <rights inherit="1" propagate="1" rights="read|write|delete">
+        <folder _operation="none" name="designRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+    </offerCategory>
+    <offerCategory active="1" image-name="offerCategory.png" image-namespace="nms" label="Offer catalog" model="nmsOfferCategory" name="categoryRootRcp" order="20" schema="nms:offer">
+      <parent _operation="none" name="designRcp"/>
+      <env _operation="none" name="designRcp"/>
+      <rights inherit="1" propagate="1" rights="read|write|delete">
+        <folder _operation="none" name="categoryRootRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+      <rights inherit="0" propagate="1" rights="read">
+        <folder _operation="none" name="categoryRootRcp"/>
+        <operator _operation="none" name="delivery" type="1"/>
+      </rights>
+      <where filteringSchema="nms:offer"/>
+      <filter schema="nms:recipient"/>
+    </offerCategory>
+    <offerCategory image-name="offerEnv.png" image-namespace="nms" label="Environment - Recipient" model="nmsOfferEnv" name="liveRcp" order="10" schema="nms:offer">
+      <where filteringSchema="nms:offer">
+        <condition expr="[category/@fullName] LIKE $(folderFullName) + '%'" internalId="1304346516"/>
+      </where>
+      <filter schema=""/>
+      <parent _operation="none" name="nmsOfferMgtProd"/>
+      <rights inherit="1" propagate="1" rights="read">
+        <folder _operation="none" name="liveRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+      <rights inherit="1" propagate="1" rights="read">
+        <folder _operation="none" name="liveRcp"/>
+        <operator _operation="none" name="delivery" type="1"/>
+      </rights>
+    </offerCategory>
+  </entities>
+  <entities schema="nms:offerEnv">
+    <offerEnv entity="xtk:folder" image-name="workflow.png" image-namespace="xtk" inputSchema="" label="Test" model="xtkWorkflow" name="Folder1" order="2" schema="xtk:workflow">
+      <parent _operation="none" name="nmsTechnicalWorkflow"/>
+      <where filteringSchema="xtk:workflow"/>
+    </offerEnv>
+    <offerEnv image-name="offerEnv.png" image-namespace="nms" label="Environment - Recipient" model="nmsOfferEnv" name="designRcp" order="10" propositionSchema="nms:propositionRcp" schema="nms:offer">
+      <where filteringSchema="nms:offer">
+        <condition expr="[category/@fullName] LIKE $(folderFullName) + '%'" internalId="1304346516"/>
+      </where>
+      <filter schema="nms:recipient"/>
+      <parent _operation="none" name="nmsOfferMgt"/>
+      <prodEnv _operation="none" name="liveRcp"/>
+      <rights inherit="1" propagate="1" rights="read|write|delete">
+        <folder _operation="none" name="designRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+    </offerEnv>
+    <offerEnv image-name="offerCategory.png" image-namespace="nms" inputSchema="" label="Offer catalog" model="nmsOfferCategory" name="categoryRootRcp" order="20" schema="nms:offer">
+      <parent _operation="none" name="designRcp"/>
+      <rights inherit="1" propagate="1" rights="read|write|delete">
+        <folder _operation="none" name="categoryRootRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+      <rights inherit="0" propagate="1" rights="read">
+        <folder _operation="none" name="categoryRootRcp"/>
+        <operator _operation="none" name="delivery" type="1"/>
+      </rights>
+      <where filteringSchema="nms:offer"/>
+    </offerEnv>
+    <offerEnv image-name="offerEnv.png" image-namespace="nms" label="Environment - Recipient" live="1" model="nmsOfferEnv" name="liveRcp" order="10" propositionSchema="nms:propositionRcp" schema="nms:offer">
+      <where filteringSchema="nms:offer">
+        <condition expr="[category/@fullName] LIKE $(folderFullName) + '%'" internalId="1304346516"/>
+      </where>
+      <filter schema="nms:recipient"/>
+      <parent _operation="none" name="nmsOfferMgtProd"/>
+      <rights inherit="1" propagate="1" rights="read">
+        <folder _operation="none" name="liveRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+      <rights inherit="1" propagate="1" rights="read">
+        <folder _operation="none" name="liveRcp"/>
+        <operator _operation="none" name="delivery" type="1"/>
+      </rights>
+    </offerEnv>
+  </entities>
+  <entities schema="xtk:counter">
+    <counter name="xtkpackageInstall" value="1"/>
+    <counter name="xtkFolder" value="1"/>
+    <counter name="xtkWorkflow" value="1"/>
+    <counter name="nmsDeliveryModel" value="1"/>
+    <counter name="xtkSpecFile" value="3"/>
+  </entities>
+  <entities schema="xtk:folder">
+    <folder entity="xtk:folder" image-name="workflow.png" image-namespace="xtk" label="Test" model="xtkWorkflow" name="Folder1" order="2" schema="xtk:workflow">
+      <parent _operation="none" name="nmsTechnicalWorkflow"/>
+      <where filteringSchema="xtk:workflow"/>
+    </folder>
+    <folder image-name="offerEnv.png" image-namespace="nms" label="Environment - Recipient" model="nmsOfferEnv" name="designRcp" order="10" schema="nms:offer">
+      <where filteringSchema="nms:offer">
+        <condition expr="[category/@fullName] LIKE $(folderFullName) + '%'" internalId="1304346516"/>
+      </where>
+      <parent _operation="none" name="nmsOfferMgt"/>
+      <rights inherit="1" propagate="1" rights="read|write|delete">
+        <folder _operation="none" name="designRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+    </folder>
+    <folder env-id="3693" image-name="offerCategory.png" image-namespace="nms" label="Offer catalog" model="nmsOfferCategory" name="categoryRootRcp" order="20" schema="nms:offer">
+      <parent _operation="none" name="designRcp"/>
+      <rights inherit="1" propagate="1" rights="read|write|delete">
+        <folder _operation="none" name="categoryRootRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+      <rights inherit="0" propagate="1" rights="read">
+        <folder _operation="none" name="categoryRootRcp"/>
+        <operator _operation="none" name="delivery" type="1"/>
+      </rights>
+      <where filteringSchema="nms:offer"/>
+    </folder>
+    <folder image-name="offerEnv.png" image-namespace="nms" label="Environment - Recipient" model="nmsOfferEnv" name="liveRcp" order="10" schema="nms:offer">
+      <where filteringSchema="nms:offer">
+        <condition expr="[category/@fullName] LIKE $(folderFullName) + '%'" internalId="1304346516"/>
+      </where>
+      <parent _operation="none" name="nmsOfferMgtProd"/>
+      <rights inherit="1" propagate="1" rights="read">
+        <folder _operation="none" name="liveRcp"/>
+        <operator _operation="none" name="offer" type="1"/>
+      </rights>
+      <rights inherit="1" propagate="1" rights="read">
+        <folder _operation="none" name="liveRcp"/>
+        <operator _operation="none" name="delivery" type="1"/>
+      </rights>
+    </folder>
+  </entities>
+  <entities schema="xtk:specFile">
+    <specFile img="xtk:installedPackage.png" includeDefaultValues="false" includeInstallScript="false" includeSpec="true" label="Platform Package" name="campaignPlatformPKG" namespace="vt" type="1">
+      <definition automaticDefinition="true" id="nms:offerCategory" lineCountMax="500" schema="nms:offerCategory">
+        <where displayFilter="(primary key != 0 and no native application folder) and (foreign key of link 'Parent' (field 'id') != 0)">
+          <condition boolOperator="AND" expr="(@id != 0 AND @builtIn = 0)" internalId="1"/>
+          <condition boolOperator="AND NOT" expr="([@parent-id]!=0)" internalId="2"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="nms:offerEnv" lineCountMax="500" schema="nms:offerEnv">
+        <where displayFilter="(primary key != 0 and no native application folder) and (foreign key of link 'Parent' (field 'id') != 0)">
+          <condition boolOperator="AND" expr="(@id != 0 AND @builtIn = 0)" internalId="3"/>
+          <condition boolOperator="AND NOT" expr="([@parent-id]!=0)" internalId="4"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:counter" lineCountMax="500" schema="xtk:counter">
+        <where displayFilter="primary key != 0">
+          <condition boolOperator="AND" expr="@id != 0" internalId="5"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:dashboard" lineCountMax="500" schema="xtk:dashboard">
+        <where displayFilter="primary key != 0">
+          <condition boolOperator="AND" expr="@id != 0" internalId="6"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:folder" lineCountMax="500" schema="xtk:folder">
+        <where displayFilter="(primary key != 0 and no native application folder) and (foreign key of link 'Parent' (field 'id') != 0)">
+          <condition boolOperator="AND" expr="(@id != 0 AND @builtIn = 0)" internalId="7"/>
+          <condition boolOperator="AND NOT" expr="([@parent-id]!=0)" internalId="8"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:form" lineCountMax="500" schema="xtk:form">
+        <where displayFilter="entity content != ''">
+          <condition boolOperator="AND" expr="data!=''" internalId="9"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:funcList" lineCountMax="500" schema="xtk:funcList">
+        <where displayFilter="namespace not in ('xtk', 'nl', 'nms', 'ncm', 'crm')">
+          <condition boolOperator="AND" expr="@namespace NOT IN ('xtk','nl','nms','ncm','crm')" internalId="10"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:image" lineCountMax="500" schema="xtk:image">
+        <where displayFilter="namespace not in ('xtk', 'nl', 'nms', 'ncm', 'crm')">
+          <condition boolOperator="AND" expr="@namespace NOT IN ('xtk','nl','nms','ncm','crm')" internalId="11"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:javascript" lineCountMax="500" schema="xtk:javascript">
+        <where displayFilter="namespace not in ('xtk', 'nl', 'nms', 'ncm', 'crm')">
+          <condition boolOperator="AND" expr="@namespace NOT IN ('xtk','nl','nms','ncm','crm')" internalId="12"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:jssp" lineCountMax="500" schema="xtk:jssp">
+        <where displayFilter="namespace not in ('xtk', 'nl', 'nms', 'ncm', 'crm')">
+          <condition boolOperator="AND" expr="@namespace NOT IN ('xtk','nl','nms','ncm','crm')" internalId="13"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:navtree" lineCountMax="500" schema="xtk:navtree">
+        <where displayFilter="namespace not in ('xtk', 'nl', 'nms', 'ncm', 'crm')">
+          <condition boolOperator="AND" expr="@namespace NOT IN ('xtk','nl','nms','ncm','crm')" internalId="14"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:option" lineCountMax="500" schema="xtk:option">
+        <where displayFilter="(option type equal to 'System' and primary key != 0)">
+          <condition boolOperator="AND" expr="(@type = 1 AND @id != 0)" internalId="15"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:sql" lineCountMax="500" schema="xtk:sql">
+        <where displayFilter="namespace not in ('xtk', 'nl', 'nms', 'ncm', 'crm')">
+          <condition boolOperator="AND" expr="@namespace NOT IN ('xtk','nl','nms','ncm','crm')" internalId="16"/>
+        </where>
+      </definition>
+      <definition automaticDefinition="true" id="xtk:srcSchema" lineCountMax="500" schema="xtk:srcSchema">
+        <where displayFilter="namespace not in ('xtk', 'nl', 'nms', 'ncm', 'crm')">
+          <condition boolOperator="AND" expr="@namespace NOT IN ('xtk','nl','nms','ncm','crm')" internalId="17"/>
+        </where>
+      </definition>
+    </specFile>
+  </entities>
+</package>
