@@ -1,4 +1,4 @@
-<package author="Administrator (admin)" buildDate="2017-01-20 03:49:25.079Z" buildNumber="8705" buildVersion="6.1" img="xtk:installedPackage.png" label="Admin Package" name="campaignAdminPKG" namespace="vt" vendor="">
+<package author="Administrator (admin)" buildDate="2017-01-20 03:50:20.197Z" buildNumber="8705" buildVersion="6.1" img="xtk:installedPackage.png" label="Admin Package" name="campaignAdminPKG" namespace="vt" vendor="">
   <entities schema="nms:country">
     <country iana="af" isoA2="AF" isoA3="AFG" isoNum="4" itu="93" labelDE="Afghanistan" labelEN="Afghanistan" labelFR="Afghanistan" labelISO="AFGHANISTAN"/>
     <country iana="za" isoA2="ZA" isoA3="ZAF" isoNum="710" itu="27" labelDE="Südafrika" labelEN="South Africa" labelFR="Afrique du Sud" labelISO="SOUTH AFRICA" phoneExit="091" phoneFormat="## ### ####"/>
